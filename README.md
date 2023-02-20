@@ -9,13 +9,21 @@
 # 🌏 yellow-river-env-gov
 > 黄河环境治理项目后台
 
-# 模块
+# 📦模块
 ## infrastructure
 > 基础设施模块
 
 
 ## shared
 > 共享模块
+
+# 💎技术选型
+项目采用模块化技术（java9推出），系统架构上摒弃传统的三层架构，结合DDD(Domain Driven Design)和Clean Architecture进行开发。
+
+| 组件         | 版本    | 描述  |
+|------------|-------|-----|
+| SpringBoot | 2.4.2 |     |
+
 
 # 🎯Plan
 
