@@ -1,19 +1,142 @@
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
+
 plugins {
-    id 'java'
+	id 'java'
+	id 'java-library'
+	id 'io.spring.dependency-management' version "1.0.12.RELEASE"
+	id 'org.springframework.boot' version '2.4.2'
 }
 
 group 'cn.gov.yrcc'
 version '0.0.1-OEM'
 
-repositories {
-    mavenCentral()
+allprojects {
+	repositories {
+		maven { url 'https://maven.aliyun.com/repository/public/' }
+		maven { url 'https://maven.aliyun.com/repository/spring/'}
+		mavenCentral()
+		mavenLocal()
+		gradlePluginPortal()
+	}
+
+	tasks.withType(JavaCompile).tap {
+		configureEach {
+			options.encoding("utf-8")
+		}
+	}
+
+	sourceCompatibility = JavaVersion.VERSION_11
+	targetCompatibility = JavaVersion.VERSION_11
 }
 
-dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+ext {
+	lib = [
+			servlet   : '4.0.1',
+			pagehelper: '1.4.2',
+			validation: '2.0.1.Final',
+			jwt       : '3.10.3',
+			lombok    : '1.18.12',
+			knife4j   : '2.0.7',
+			quartz    : '2.3.2'
+	]
+	jackson = [
+			annotations: '2.11.4',
+			databind: '2.11.4'
+	]
+	db = [
+			mybatis      : '2.0.6',
+			mybatisplus  : '3.5.0',
+			liquibase    : '4.9.1',
+	]
+	apache = [
+			lang3       : '3.5',
+			collections4: '4.4',
+	]
+	google = [
+			guava: '31.1-jre'
+	]
+	swagger = [
+			annotations: '1.5.22'
+	]
+	kotlin_lib = [
+			okhttp: '5.0.0-alpha.11',
+	]
 }
 
-test {
-    useJUnitPlatform()
+sourceSets {}
+
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'java-library'
+	apply plugin: 'org.springframework.boot'
+	apply plugin: 'io.spring.dependency-management'
+
+	// custom java source layout
+	sourceSets {
+		main {
+			java {
+				srcDirs = ['src/main/java']
+			}
+			resources {
+				srcDirs = ['src/main/resources']
+			}
+		}
+
+		test {
+			java {
+				srcDirs = ['src/test/java']
+			}
+		}
+	}
+
+	tasks.register('wrapper', Wrapper) {
+		description = 'Install Gradle wrapper'
+		gradleVersion = '7.5.1'
+	}
+
+	dependencyManagement {
+		imports {
+			mavenBom(SpringBootPlugin.BOM_COORDINATES)
+		}
+
+		// 管理项目的依赖版本，不实际引入依赖
+		dependencies {
+			dependency "org.projectlombok:lombok:${lib.lombok}"
+			dependency "javax.servlet:javax.servlet-api:${lib.servlet}"
+			dependency "javax.validation:validation-api:${lib.validation}"
+			dependency "com.github.xiaoymin:knife4j-spring-boot-starter:${lib.knife4j}"
+			dependency "com.github.pagehelper:pagehelper-spring-boot-starter:${lib.pagehelper}"
+
+			dependency "com.fasterxml.jackson.core:jackson-databind:${jackson.databind}"
+			dependency "com.fasterxml.jackson.core:jackson-annotations:${jackson.annotations}"
+
+			dependency "org.mybatis:mybatis-spring:${db.mybatis}"
+			dependency "org.liquibase:liquibase-core:${db.liquibase}"
+			dependency "com.baomidou:mybatis-plus-core:${db.mybatisplus}"
+			dependency "com.baomidou:mybatis-plus-extension:${db.mybatisplus}"
+			dependency "com.baomidou:mybatis-plus-annotation:${db.mybatisplus}"
+			dependency "com.baomidou:mybatis-plus-boot-starter:${db.mybatisplus}"
+
+			dependency "org.apache.commons:commons-lang3:${apache.lang3}"
+			dependency "org.apache.commons:commons-collections4:${apache.collections4}"
+
+			dependency "com.google.guava:guava:${google.guava}"
+
+			dependency "io.swagger:swagger-annotations:${swagger.annotations}"
+
+			dependency "com.squareup.okhttp3:okhttp:${kotlin_lib.okhttp}"
+		}
+	}
+
+	// 引入不同项目公共依赖
+	dependencies {
+		annotationProcessor 'org.projectlombok:lombok'
+		compileOnly 'org.projectlombok:lombok'
+		testAnnotationProcessor 'org.projectlombok:lombok'
+		testCompileOnly 'org.projectlombok:lombok'
+		implementation(
+				'com.google.guava:guava'
+		)
+
+	}
 }

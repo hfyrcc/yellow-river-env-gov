@@ -1,2 +1,4 @@
 rootProject.name = 'yellow-river-env-gov'
+include 'infrastructure'
+include 'shared'
 
