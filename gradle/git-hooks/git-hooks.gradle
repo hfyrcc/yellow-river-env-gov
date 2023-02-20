@@ -1,0 +1,9 @@
+tasks.register('installGitHooks', Copy) {
+	from new File(rootProject.rootDir, 'gradle/git-hooks/commit-msg')
+	into {
+		new File(rootProject.rootDir, '.git/hooks')
+	}
+	fileMode 0755
+}
+
+compileJava.dependsOn installGitHooks

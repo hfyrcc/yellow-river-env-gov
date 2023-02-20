@@ -137,6 +137,8 @@ subprojects {
 		implementation(
 				'com.google.guava:guava'
 		)
-
 	}
+
+	// 应用gradle脚本
+	apply from: "${rootProject.projectDir}/gradle/git-hooks/git-hooks.gradle"
 }

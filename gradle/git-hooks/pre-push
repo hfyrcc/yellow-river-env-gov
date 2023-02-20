@@ -1,0 +1,11 @@
+#!/bin/bash
+set -x # 执行命令后，会显示该指令及所下的参数
+echo Run gradle check before push to remote repository...
+
+./gradlew spotbugsMain
+
+# store the last exit code in a variable
+RESULT=$?
+
+# 0-正常运行程序并退出程序、1-非正常运行导致退出程序
+exit $RESULT

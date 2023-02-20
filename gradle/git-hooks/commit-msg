@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# 用 `` 可以将命令的输出结果赋值给变量, commit_msg=`cat $1`
+# 获取当前提交的 commit msg
+commit_msg=$(cat "$1")
+
+# email=`git config user.email`
+msg_regular="^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\(.+\))?: .{1,100}"
+
+if [[ ! $commit_msg =~ $msg_regular ]]
+then
+	echo "错误：非法的commit提交，请使用正确的格式（最大长度100）："
+	echo "模板：feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert"
+	echo "规范：https://github.com/woai3c/Front-end-articles/blob/master/git%20commit%20style.md"
+	echo "示例：feat: add user login"
+	echo "     chore(build): update build.gradle"
+
+	exit 1
+fi
