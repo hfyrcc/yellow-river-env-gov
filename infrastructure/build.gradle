@@ -5,5 +5,6 @@ dependencies {
 			'org.apache.commons:commons-lang3',
 			'org.apache.commons:commons-collections4',
 			'org.springframework.boot:spring-boot-starter-json',
+			'org.springframework.boot:spring-boot-starter-data-redis',
 	)
 }

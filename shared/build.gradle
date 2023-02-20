@@ -1,5 +1,7 @@
 description = 'shared'
 
 dependencies {
-
+	implementation(
+			'com.github.pagehelper:pagehelper-spring-boot-starter'
+	)
 }
