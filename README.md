@@ -3,7 +3,7 @@
 ![gradle](https://img.shields.io/badge/gradle->=7.2-blue)
 ![jdk](https://img.shields.io/badge/jdk-11-blue)
 ![Docker](https://img.shields.io/badge/docker-🐳-ff69b4)
-![License](https://img.shields.io/badge/license-MIT-brightgreen)
+![License](https://img.shields.io/badge/license-Apache2.0-brightgreen)
 ![Documentation](https://img.shields.io/badge/documentation-yes&nbsp;📖-ff69b4)
 
 # 🌏 yellow-river-env-gov
