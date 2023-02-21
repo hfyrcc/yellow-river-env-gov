@@ -1,6 +1,4 @@
 description = 'docs'
 
 dependencies {
-	api project(':docs-api')
-	api project(':user-api')
 }

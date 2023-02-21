@@ -167,9 +167,10 @@ configure(subprojects.findAll {it.description != 'web'}) {
 }
 
 // 除web模块和api模块的所有子模块
-configure(subprojects.findAll {it.description != 'web' && !it.name.endsWith('api')
-		&& it.name != 'infrastructure' && it.name != 'shared'}) {
+configure(subprojects.findAll {it.description != 'web' && it.name != 'infrastructure'
+		&& it.name != 'shared'}) {
 	dependencies {
+		api project(':shared')
 		api project(':infrastructure')
 		implementation(
 				'com.baomidou:mybatis-plus-annotation',
@@ -184,28 +185,5 @@ configure(subprojects.findAll {it.description != 'web' && !it.name.endsWith('api
 
 	test {
 		useJUnitPlatform()
-	}
-}
-
-// 所有api模块的依赖配置
-configure(subprojects.findAll {it.name.endsWith('api')}) {
-	sourceSets {
-		main {
-			java {
-				srcDirs = ['src/main/java']
-			}
-		}
-	}
-
-	dependencies {
-		api project(':shared')
-		api (
-				'com.baomidou:mybatis-plus-extension'
-		)
-		implementation(
-				'io.swagger:swagger-annotations',
-				'com.baomidou:mybatis-plus-annotation',
-				'javax.validation:validation-api'
-		)
 	}
 }
