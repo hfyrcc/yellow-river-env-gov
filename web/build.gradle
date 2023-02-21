@@ -1,0 +1,16 @@
+description = 'web'
+
+dependencies {
+	api project(':infrastructure')
+	api project(':docs')
+	implementation(
+			'org.mybatis:mybatis-spring',
+			'javax.validation:validation-api',
+			'com.github.xiaoymin:knife4j-spring-boot-starter',
+			'org.springframework.boot:spring-boot-starter-aop',
+			'org.springframework.boot:spring-boot-starter-web',
+	)
+	testImplementation(
+			'org.springframework.boot:spring-boot-starter-test'
+	)
+}

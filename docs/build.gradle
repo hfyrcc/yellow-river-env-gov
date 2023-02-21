@@ -1,0 +1,5 @@
+description = 'docs'
+
+dependencies {
+	api project(':docs-api')
+}

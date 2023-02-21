@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    active: dev
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  application:
+    name: yellow-river-env-gov
+
+server:
+  port: 10240
+  servlet:
+    context-path: /yrcc

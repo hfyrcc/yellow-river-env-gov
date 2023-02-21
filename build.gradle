@@ -32,7 +32,7 @@ allprojects {
 ext {
 	lib = [
 			servlet   : '4.0.1',
-			pagehelper: '1.4.2',
+			pagehelper: '1.4.6',
 			validation: '2.0.1.Final',
 			jwt       : '3.10.3',
 			lombok    : '1.18.12',
@@ -141,4 +141,58 @@ subprojects {
 
 	// 应用gradle脚本
 	apply from: "${rootProject.projectDir}/gradle/git-hooks/git-hooks.gradle"
+}
+
+// 除web模块的所有子模块
+configure(subprojects.findAll {it.description != 'web'}) {
+	jar {
+		enabled = true
+	}
+	bootJar {
+		enabled = false
+	}
+}
+
+// 除web模块和api模块的所有子模块
+configure(subprojects.findAll {it.description != 'web' && !it.name.endsWith('api')
+		&& it.name != 'infrastructure' && it.name != 'shared'}) {
+	dependencies {
+		api project(':infrastructure')
+		implementation(
+				'com.baomidou:mybatis-plus-annotation',
+				'com.baomidou:mybatis-plus-core',
+				'javax.validation:validation-api',
+				'org.springframework.boot:spring-boot-starter-aop',
+		)
+		testImplementation(
+				'org.springframework.boot:spring-boot-starter-test'
+		)
+	}
+
+	test {
+		useJUnitPlatform()
+	}
+}
+
+// 所有api模块的依赖配置
+configure(subprojects.findAll {it.name.endsWith('api')}) {
+	sourceSets {
+		main {
+			java {
+				srcDirs = ['src/main/java']
+			}
+		}
+	}
+
+	dependencies {
+		api project(':shared')
+		api (
+				'com.baomidou:mybatis-plus-extension'
+		)
+		implementation(
+				'io.swagger:swagger-annotations',
+				'com.baomidou:mybatis-plus-annotation',
+				'javax.validation:validation-api'
+		)
+	}
 }
