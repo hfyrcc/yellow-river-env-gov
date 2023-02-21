@@ -8,6 +8,11 @@ spring:
       on-profile: dev
   application:
     name: yellow-river-env-gov
+  datasource:
+    url: jdbc:mysql://192.168.1.20:3306/baas?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    username: root
+    password: root123
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
 server:
   port: 10240

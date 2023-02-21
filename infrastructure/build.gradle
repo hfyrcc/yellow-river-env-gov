@@ -2,9 +2,11 @@ description = 'infrastructure'
 
 dependencies {
 	implementation(
+			'mysql:mysql-connector-java',
+			'com.alibaba:druid-spring-boot-starter',
+			'com.baomidou:mybatis-plus-boot-starter',
 			'org.apache.commons:commons-lang3',
 			'org.apache.commons:commons-collections4',
 			'org.springframework.boot:spring-boot-starter-json',
-			'org.springframework.boot:spring-boot-starter-data-redis',
 	)
 }
