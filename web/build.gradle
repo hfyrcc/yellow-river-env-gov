@@ -3,6 +3,7 @@ description = 'web'
 dependencies {
 	api project(':infrastructure')
 	api project(':docs')
+	api project(':user')
 	implementation(
 			'org.mybatis:mybatis-spring',
 			'javax.validation:validation-api',

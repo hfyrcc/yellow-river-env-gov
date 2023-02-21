@@ -63,9 +63,6 @@ ext {
 	kotlin_lib = [
 			okhttp: '5.0.0-alpha.11',
 	]
-	alipay = [
-			sofa: '3.6.0'
-	]
 }
 
 sourceSets {}
@@ -141,8 +138,6 @@ subprojects {
 			dependency "io.swagger:swagger-annotations:${swagger.annotations}"
 
 			dependency "com.squareup.okhttp3:okhttp:${kotlin_lib.okhttp}"
-
-			dependency "com.alipay.sofa:isle-sofa-boot-starter:${alipay.sofa}"
 		}
 	}
 
@@ -154,7 +149,6 @@ subprojects {
 		testCompileOnly 'org.projectlombok:lombok'
 		implementation(
 				'com.google.guava:guava',
-				'com.alipay.sofa:isle-sofa-boot-starter',
 		)
 	}
 

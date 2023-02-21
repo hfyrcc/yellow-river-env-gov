@@ -4,4 +4,6 @@ include 'shared'
 include 'docs-api'
 include 'docs'
 include 'web'
+include 'user-api'
+include 'user'
 

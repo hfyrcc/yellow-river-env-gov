@@ -1,10 +1,11 @@
 package cn.gov.yrcc.web.controller.docs;
 
-import cn.gov.yrcc.docsapi.api.DocsService;
-import com.alipay.sofa.runtime.api.annotation.SofaReference;
+import cn.gov.yrcc.docs.document.api.DocsService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 /**
  * 文档服务controller
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/docs")
 public class DocsController {
 
-	@SofaReference
+	@Resource
 	private DocsService docsService;
 
 	@GetMapping("/getStatus")

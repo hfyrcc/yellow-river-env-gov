@@ -13,5 +13,4 @@ open module cn.gov.yrcc.web {
 	requires spring.beans;
 	requires spring.web;
 	requires java.annotation;
-	requires runtime.sofa.boot;
 }

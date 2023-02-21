@@ -1,6 +1,10 @@
 module cn.gov.yrcc.infrastructure {
 	// 以下是导出一方包模块
 	exports cn.gov.yrcc.infrastructure.util;
+	exports cn.gov.yrcc.infrastructure.config;
+
+	// allow reflection
+	opens cn.gov.yrcc.infrastructure.config to spring.core;
 
 	// 以下是导入三方包模块
 	requires static lombok;
