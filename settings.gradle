@@ -4,4 +4,5 @@ include 'shared'
 include 'docs'
 include 'web'
 include 'user'
+include 'common'
 

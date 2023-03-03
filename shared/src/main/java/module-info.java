@@ -3,8 +3,10 @@ module cn.gov.yrcc.shared {
 	exports cn.gov.yrcc.shared.constant;
 	exports cn.gov.yrcc.shared.exception;
 	exports cn.gov.yrcc.shared.module;
+	exports cn.gov.yrcc.shared.api;
 
 	// 以下是导入三方包模块
 	requires lombok;
 	requires pagehelper;
+    requires spring.data.commons;
 }

@@ -8,5 +8,16 @@ dependencies {
 			'org.apache.commons:commons-lang3',
 			'org.apache.commons:commons-collections4',
 			'org.springframework.boot:spring-boot-starter-json',
+			'org.springframework.boot:spring-boot-starter-security',
+			'javax.servlet:javax.servlet-api:4.0.1',
+			'cn.hutool:hutool-all:5.7.10',
+			'io.jsonwebtoken:jjwt-api:0.11.2',
+	)
+	implementation project(path: ':shared')
+	annotationProcessor ('org.springframework.boot:spring-boot-configuration-processor',)
+
+	runtimeOnly(
+			'io.jsonwebtoken:jjwt-impl:0.11.2',
+			'io.jsonwebtoken:jjwt-jackson:0.11.2',
 	)
 }
