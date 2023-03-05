@@ -1,4 +1,4 @@
-package cn.gov.yrcc.infrastructure.config;
+package cn.gov.yrcc.infrastructure.security.config;
 
 import lombok.Getter;
 import lombok.Setter;

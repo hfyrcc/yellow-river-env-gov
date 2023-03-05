@@ -1,6 +1,6 @@
-package cn.gov.yrcc.infrastructure.config;
+package cn.gov.yrcc.infrastructure.security.config;
 
-import cn.gov.yrcc.infrastructure.component.*;
+import cn.gov.yrcc.infrastructure.security.component.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

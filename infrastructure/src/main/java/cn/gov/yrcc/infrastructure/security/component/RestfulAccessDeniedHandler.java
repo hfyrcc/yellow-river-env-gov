@@ -1,4 +1,4 @@
-package cn.gov.yrcc.infrastructure.component;
+package cn.gov.yrcc.infrastructure.security.component;
 
 import cn.hutool.json.JSONUtil;
 import cn.gov.yrcc.shared.api.CommonResult;

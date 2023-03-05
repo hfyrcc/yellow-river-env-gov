@@ -6,6 +6,10 @@ module cn.gov.yrcc.infrastructure {
 	// allow reflection
 	opens cn.gov.yrcc.infrastructure.config to spring.core;
 	opens cn.gov.yrcc.infrastructure.component to spring.core;
+    exports cn.gov.yrcc.infrastructure.security.config;
+    opens cn.gov.yrcc.infrastructure.security.config to spring.core;
+	opens cn.gov.yrcc.infrastructure.security.component to spring.core;
+	exports cn.gov.yrcc.infrastructure.security.util;
 
 	// 以下是导入三方包模块
 	requires static lombok;

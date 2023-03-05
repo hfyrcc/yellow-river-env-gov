@@ -1,6 +1,6 @@
-package cn.gov.yrcc.infrastructure.component;
+package cn.gov.yrcc.infrastructure.security.component;
 
-import cn.gov.yrcc.infrastructure.config.IgnoreUrlsConfig;
+import cn.gov.yrcc.infrastructure.security.config.IgnoreUrlsConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.access.SecurityMetadataSource;

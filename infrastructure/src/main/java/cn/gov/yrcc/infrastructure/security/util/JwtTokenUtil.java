@@ -1,4 +1,4 @@
-package cn.gov.yrcc.infrastructure.util;
+package cn.gov.yrcc.infrastructure.security.util;
 
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.StrUtil;

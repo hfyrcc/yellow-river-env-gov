@@ -1,4 +1,4 @@
-package cn.gov.yrcc.infrastructure.component;
+package cn.gov.yrcc.infrastructure.security.component;
 
 import cn.hutool.core.util.URLUtil;
 import org.springframework.beans.factory.annotation.Autowired;
