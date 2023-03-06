@@ -7,6 +7,11 @@ plugins {
 	id 'org.springframework.boot' version '2.7.6'
 }
 
+java {
+	// 表示gradle使用模块化系统进行构建
+	modularity.inferModulePath = true
+}
+
 group 'cn.gov.yrcc'
 version '0.0.1-OEM'
 
@@ -88,15 +93,6 @@ subprojects {
 			java {
 				srcDirs = ['src/test/java']
 			}
-		}
-	}
-
-	compileJava {
-		doFirst {
-			options.compilerArgs = [
-					'--module-path', classpath.asPath,
-			]
-			classpath = files()
 		}
 	}
 

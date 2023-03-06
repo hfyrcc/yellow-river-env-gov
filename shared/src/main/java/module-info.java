@@ -6,7 +6,7 @@ module cn.gov.yrcc.shared {
 	exports cn.gov.yrcc.shared.api;
 
 	// 以下是导入三方包模块
-	requires lombok;
+	requires static lombok;
 	requires pagehelper;
     requires spring.data.commons;
 }
