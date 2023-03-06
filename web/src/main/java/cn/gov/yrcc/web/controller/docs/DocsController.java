@@ -1,6 +1,6 @@
 package cn.gov.yrcc.web.controller.docs;
 
-import cn.gov.yrcc.docs.document.api.DocsService;
+import cn.gov.yrcc.file.document.api.DocsService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

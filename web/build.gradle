@@ -2,7 +2,7 @@ description = 'web'
 
 dependencies {
 	api project(':infrastructure')
-	api project(':docs')
+	api project(':file')
 	api project(':user')
 	implementation(
 			'org.mybatis:mybatis-spring',

@@ -3,7 +3,7 @@ open module cn.gov.yrcc.web {
 
 	// 以下是导入三方包模块
 	//requires cn.gov.yrcc.infrastructure;
-	requires cn.gov.yrcc.docs;
+	requires cn.gov.yrcc.file;
 
 	requires spring.boot;
 	requires spring.boot.autoconfigure;

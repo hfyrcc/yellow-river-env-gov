@@ -1,4 +1,4 @@
-package cn.gov.yrcc.docs.document.api;
+package cn.gov.yrcc.file.document.api;
 
 /**
  * 文档服务接口
