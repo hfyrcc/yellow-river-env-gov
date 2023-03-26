@@ -53,6 +53,7 @@ ext {
 			druid        : '1.2.8',
 			mybatis      : '2.0.6',
 			mybatisplus  : '3.5.0',
+			generator    : '1.4.1',
 			liquibase    : '4.9.1',
 	]
 	apache = [
@@ -119,6 +120,7 @@ subprojects {
 
 			dependency "mysql:mysql-connector-java:${db.mysql}"
 			dependency "org.mybatis:mybatis-spring:${db.mybatis}"
+			dependency "org.mybatis.generator:mybatis-generator-core:${db.generator}"
 			dependency "org.liquibase:liquibase-core:${db.liquibase}"
 			dependency "com.baomidou:mybatis-plus-core:${db.mybatisplus}"
 			dependency "com.alibaba:druid-spring-boot-starter:${db.druid}"
