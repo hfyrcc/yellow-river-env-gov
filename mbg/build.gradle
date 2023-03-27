@@ -5,6 +5,7 @@ dependencies {
 			'mysql:mysql-connector-java',
 			'org.mybatis.generator:mybatis-generator-core',
 			'com.alibaba:druid-spring-boot-starter',
-			'com.github.pagehelper:pagehelper-spring-boot-starter'
+			'com.github.pagehelper:pagehelper-spring-boot-starter',
+			'io.swagger:swagger-annotations'
 	)
 }
