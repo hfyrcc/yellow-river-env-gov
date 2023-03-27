@@ -18,7 +18,7 @@ version '0.0.1-OEM'
 allprojects {
 	repositories {
 		maven { url 'https://maven.aliyun.com/repository/public/' }
-		maven { url 'https://maven.aliyun.com/repository/spring/'}
+		maven { url 'https://maven.aliyun.com/repository/spring/' }
 		mavenCentral()
 		mavenLocal()
 		gradlePluginPortal()
@@ -39,22 +39,23 @@ ext {
 			servlet   : '4.0.1',
 			pagehelper: '1.4.6',
 			validation: '2.0.1.Final',
-			jwt       : '3.10.3',
+			jwt       : '0.11.2',
 			lombok    : '1.18.24',
 			knife4j   : '2.0.7',
-			quartz    : '2.3.2'
+			quartz    : '2.3.2',
+			hutool    : '5.8.11'
 	]
 	jackson = [
 			annotations: '2.11.4',
-			databind: '2.11.4'
+			databind   : '2.11.4'
 	]
 	db = [
-			mysql        : '8.0.25',
-			druid        : '1.2.8',
-			mybatis      : '2.0.6',
-			mybatisplus  : '3.5.0',
-			generator    : '1.4.1',
-			liquibase    : '4.9.1',
+			mysql      : '8.0.25',
+			druid      : '1.2.8',
+			mybatis    : '2.0.6',
+			mybatisplus: '3.5.0',
+			generator  : '1.4.1',
+			liquibase  : '4.9.1',
 	]
 	apache = [
 			lang3       : '3.5',
@@ -114,6 +115,10 @@ subprojects {
 			dependency "javax.validation:validation-api:${lib.validation}"
 			dependency "com.github.xiaoymin:knife4j-spring-boot-starter:${lib.knife4j}"
 			dependency "com.github.pagehelper:pagehelper-spring-boot-starter:${lib.pagehelper}"
+			dependency "io.jsonwebtoken:jjwt-api:${lib.jwt}"
+			dependency "io.jsonwebtoken:jjwt-impl:${lib.jwt}"
+			dependency "io.jsonwebtoken:jjwt-jackson:${lib.jwt}"
+			dependency "cn.hutool:hutool-all:${lib.hutool}"
 
 			dependency "com.fasterxml.jackson.core:jackson-databind:${jackson.databind}"
 			dependency "com.fasterxml.jackson.core:jackson-annotations:${jackson.annotations}"
@@ -155,7 +160,7 @@ subprojects {
 }
 
 // 除web模块的所有子模块
-configure(subprojects.findAll {it.description != 'web'}) {
+configure(subprojects.findAll { it.description != 'web' }) {
 	jar {
 		enabled = true
 	}
@@ -165,8 +170,10 @@ configure(subprojects.findAll {it.description != 'web'}) {
 }
 
 // 除web模块和api模块的所有子模块
-configure(subprojects.findAll {it.description != 'web' && it.name != 'infrastructure'
-		&& it.name != 'shared'}) {
+configure(subprojects.findAll {
+	it.description != 'web' && it.name != 'infrastructure'
+			&& it.name != 'shared'
+}) {
 	dependencies {
 		api project(':shared')
 		api project(':infrastructure')

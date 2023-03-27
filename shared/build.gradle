@@ -3,6 +3,6 @@ description = 'shared'
 dependencies {
 	implementation(
 			'com.github.pagehelper:pagehelper-spring-boot-starter',
-			'org.springframework.data:spring-data-commons:2.5.6'
+			'org.springframework.data:spring-data-commons'
 	)
 }
