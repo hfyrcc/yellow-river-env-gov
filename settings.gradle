@@ -5,4 +5,5 @@ include 'file'
 include 'web'
 include 'user'
 include 'common'
+include 'mbg'
 
