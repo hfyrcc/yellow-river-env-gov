@@ -18,7 +18,7 @@
         <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
         <!-- 生成mapper.xml时覆盖原文件 -->
         <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin" />
-        <commentGenerator type="com.macro.mall.CommentGenerator">
+        <commentGenerator type="cn.gov.yrcc.CommentGenerator">
             <!-- 是否阻止生成的注释 -->
             <property name="suppressAllComments" value="true"/>
             <!-- 是否阻止生成的注释包含时间戳 -->
